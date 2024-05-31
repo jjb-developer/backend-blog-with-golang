@@ -1,24 +1,23 @@
 package main
 
 import (
-	"./handler"
 	"github.com/gin-gonic/gin"
 
-	//"time"
-	//"github.com/dgrijalva/jwt-go"
+	_ "github.com/dgrijalva/jwt-go"
 
-	//"github.com/jinzhu/gorm"
-	//_ "github.com/jinzhu/gorm/dialects/sqlite"
+	//"database/sql"
+	_ "github.com/mattn/go-sqlite3"
+
 )
 
 func main(){
-	//handler.CreateDB()
 	server := gin.Default()
-	//server.GET("/createDB", handler.CreateDB)
-	server.GET("/", handler.Read)
-	server.POST("/", handler.Create)
-	//server.PATCH("/:id", handler.UpdateOne)
-	//server.PUT("/", handler.Update)
-	//server.DELETE("/", handler.Delete)
-	server.Run(":8080")
+
+	server.GET("/", func(ctx *gin.Context){
+		ctx.JSON(200, gin.H{
+			"message": "ok",
+		})
+	})
+	
+	server.Run()
 }
