@@ -1,4 +1,6 @@
-go 1.22.3
+module github.com/jjb-developer/backend-blog-with-golang
+
+go 1.10
 
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
